@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
             if (userDOB.isNotEmpty()) {
                 val year = Calendar.getInstance().get(Calendar.YEAR);
                 val age = year - userDOB.toInt()
+                tvShowAge.text = "Your age is $age"
                 var output = ""
                 when (age) {
                     in 0..17 -> output = "Underage"
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                         output = "Long-lived elderly"
                     }
                 }
-                tvShowAge.text = output
+                tvShowAge.text = tvShowAge.text.toString() + "\n" + output
             } else {
                 Toast.makeText(this, "Please enter your birth year", Toast.LENGTH_SHORT).show()
             }
